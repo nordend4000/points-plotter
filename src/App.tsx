@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FC, useState } from "react"
+import Layout from "./components/Layout"
+import Footer from "./components/Footer"
+import "./styles.scss"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const TAB_START = ["TAB 1", "TAB 2", "TAB 3", "TAB 4", "NEW TAB"]
+
+const STORE_START = [
+	[
+		[10, 12],
+		[25, 1],
+		[80, 8],
+		[40, 10],
+	],
+	[[0, 0]],
+	[[0, 0]],
+	[[0, 0]],
+]
+
+const App: FC = () => {
+	const [store, setStore] = useState<number[][][]>(STORE_START)
+	const [activeTab, setActiveTab] = useState<number>(0)
+	const [tab, setTab] = useState<string[]>(TAB_START)
+
+	return (
+		<>
+			<div className='App'>
+				<Layout
+					store={store}
+					setStore={setStore}
+					activeTab={activeTab}
+					setActiveTab={setActiveTab}
+					tab={tab}
+					setTab={setTab}
+				/>
+			</div>
+			<Footer />
+		</>
+	)
 }
 
-export default App;
+export default App

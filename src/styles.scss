@@ -1,0 +1,25 @@
+.App {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	min-height: calc(100vh - 70px * 2);
+}
+.chart {
+	height: 70vh;
+}
+.custom-tooltip {
+	border: 1px solid rgb(119, 119, 119);
+	border-radius: 0.5rem;
+	padding: 0.2rem 0.8rem;
+	background-color: rgb(223, 223, 223);
+	&__title {
+		color: #4154b3;
+		text-align: center;
+	}
+	&__label {
+		color: rgb(119, 119, 119);
+	}
+}
+footer {
+	height: 70px;
+}
