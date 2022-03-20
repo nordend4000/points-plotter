@@ -17,7 +17,11 @@ const Footer: FC = () => {
 				mx={3}>
 				<Typography variant='body1'>
 					Thanks to{" "}
-					<Link href='https://felfel.ch' underline='hover'>
+					<Link
+						href='https://felfel.ch'
+						underline='hover'
+						target='_blank'
+						rel='noreferrer'>
 						FELFEL
 					</Link>{" "}
 					Team for this nice project, I really enyoyed creating it.
@@ -33,7 +37,9 @@ const Footer: FC = () => {
 					alignItems={"center"}>
 					<Link
 						href='https://github.com/nordend4000/points-plotter'
-						underline='hover'>
+						underline='hover'
+						target='_blank'
+						rel='noreferrer'>
 						<Box
 							display='flex'
 							justifyContent={"center"}
@@ -45,7 +51,11 @@ const Footer: FC = () => {
 							Source Code
 						</Box>
 					</Link>
-					<Link href='https://romaingioux.dev' underline='hover'>
+					<Link
+						href='https://romaingioux.dev'
+						underline='hover'
+						target='_blank'
+						rel='noreferrer'>
 						<Box
 							display='flex'
 							justifyContent={"center"}
