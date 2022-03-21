@@ -2,7 +2,7 @@
 
 Interface built with REACT, TYPESCRIPT, MATERIAL DESIGN & SASS
 
-### https://points-plotter.netlify.app
+Live version : ### https://points-plotter.netlify.app
 
 <a href="https://points-plotter.netlify.app"><img src="https://res.cloudinary.com/dokbrxcp2/image/upload/v1647775125/images/components_tree_sqdwir.png" alt="Points Plotter"/></a>
 <a href="https://points-plotter.netlify.app">
@@ -12,8 +12,18 @@ Interface built with REACT, TYPESCRIPT, MATERIAL DESIGN & SASS
 
 - git clone : https://github.com/nordend4000/points-plotter.git (or donwload
   repository)
-- npm install
-- npm start
+- npm install (install dependencies)
+- npm start (run the project)
+
+## TESTING :
+
+UNIT & INTEGRATION TESTS : Jest & Testing Library
+
+- npm test
+
+END TO END TESTS : Cypress.io
+
+- npm run cypress:open
 
 ## TECHNOLOGIES :
 
@@ -23,4 +33,5 @@ Interface built with REACT, TYPESCRIPT, MATERIAL DESIGN & SASS
 - Hosting : Netlify
 - Components Pert chart crafted with FIGMA
 
-<a href="https://romaingioux.dev">Romain GIOUX - Web Developer</a>
+Crafted in Switzerland <a href="https://romaingioux.dev">Romain GIOUX - Web
+Developer</a> &copy; 2022

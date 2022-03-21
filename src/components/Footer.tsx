@@ -8,7 +8,7 @@ import GitHubIcon from "@material-ui/icons/GitHub"
 
 const Footer: FC = () => {
 	return (
-		<footer>
+		<footer data-testid='Footer'>
 			<Box
 				display='flex'
 				justifyContent={"space-evenly"}
@@ -24,7 +24,7 @@ const Footer: FC = () => {
 						rel='noreferrer'>
 						FELFEL
 					</Link>{" "}
-					Team for this nice project, I really enyoyed creating it.
+					Team for this interesting project, I really enyoyed creating it.
 				</Typography>
 			</Box>
 			<Box my={3}>

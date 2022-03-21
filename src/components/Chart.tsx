@@ -43,8 +43,15 @@ const Chart: FC<IChartProps> = ({ dataChart, tab }) => {
 	}
 
 	return (
-		<ResponsiveContainer width='100%' height='100%'>
-			<ScatterChart>
+		<ResponsiveContainer
+			width='100%'
+			height='100%'
+			minWidth='100px'
+			minHeight='100px'>
+			<ScatterChart
+				style={{
+					cursor: "crosshair",
+				}}>
 				<CartesianGrid />
 				<XAxis
 					type='number'

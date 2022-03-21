@@ -24,7 +24,7 @@ const App: FC = () => {
 
 	return (
 		<>
-			<div className='App'>
+			<div className='App' data-testid='app'>
 				<Layout
 					store={store}
 					setStore={setStore}

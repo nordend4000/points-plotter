@@ -33,7 +33,13 @@ const Feedback: FC<IFeedbackProps> = ({
 	}
 
 	return (
-		<div className={classes.root}>
+		<div
+			className={classes.root}
+			data-testid={
+				message === "Data has been appended to the list of points."
+					? "feedback-success"
+					: "feedback-error"
+			}>
 			<Snackbar
 				open={open}
 				autoHideDuration={4000}
