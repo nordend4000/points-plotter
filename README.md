@@ -2,11 +2,11 @@
 
 Interface built with REACT, TYPESCRIPT, MATERIAL DESIGN & SASS
 
-Live version : ### https://points-plotter.netlify.app
+Live version : https://points-plotter.netlify.app
 
-<a href="https://points-plotter.netlify.app"><img src="https://res.cloudinary.com/dokbrxcp2/image/upload/v1647775125/images/components_tree_sqdwir.png" alt="Points Plotter"/></a>
+<a href="https://points-plotter.netlify.app"><img src="https://res.cloudinary.com/dokbrxcp2/image/upload/v1647888406/images/components_tree_gpy8fr.png" alt="components tree"/></a>
 <a href="https://points-plotter.netlify.app">
-<img src="https://res.cloudinary.com/dokbrxcp2/image/upload/v1647781392/images/Capture_d_%C3%A9cran_2022-03-20_%C3%A0_14.02.17_2_aqjcaf.png" alt="Points Plotter"/></a>
+<img src="https://res.cloudinary.com/dokbrxcp2/image/upload/v1647886685/images/screenshot_plotter_oxulli.png" alt="Points Plotter screenshot"/></a>
 
 ## HOW TO RUN THE PROJECT LOCALLY :
 
@@ -17,7 +17,7 @@ Live version : ### https://points-plotter.netlify.app
 
 ## TESTING :
 
-UNIT & INTEGRATION TESTS : Jest & Testing Library
+UNIT & INTEGRATION TESTS : Jest, MSW & Testing Library
 
 - npm test
 
@@ -31,7 +31,7 @@ END TO END TESTS : Cypress.io
 - Dependencies : recharts / node-sass / axios
 - Styling : Material Design MUI & SASS
 - Hosting : Netlify
-- Components Pert chart crafted with FIGMA
+- Components Tree designed with FIGMA
 
 Crafted in Switzerland <a href="https://romaingioux.dev">Romain GIOUX - Web
 Developer</a> &copy; 2022

@@ -16,7 +16,7 @@ const Plotter: FC<IPlotterProps> = ({ tab, store, setStore, activeTab }) => {
 	const [axisLimit, setAxisLimit] = useState<IAxisLimit | null>(null)
 	const chartRef = useRef<HTMLDivElement>(null)
 
-	// CRUD FUNCTIONS 4 COORDINATES : UPDATE inputs + REMOVE & ADD buttons
+	// CRUD FUNCTIONS FOR COORDINATES : UPDATE inputs + REMOVE & ADD buttons
 	const removePoint = (index: number) => {
 		const removePointFromTabArray = store[activeTab].filter(
 			(item, idx) => idx !== index,
@@ -47,7 +47,7 @@ const Plotter: FC<IPlotterProps> = ({ tab, store, setStore, activeTab }) => {
 		setStore(updateStore(store, newArray, activeTab))
 	}
 
-	// FUNCTIONS 4 CHART : Convert array & get Axis limits
+	// FUNCTIONS FOR CHART : Convert array & get Axis limits
 	const convertData4Chart = (arrayXY: number[][]) => {
 		const newChartArray: IDataChart[] = []
 		arrayXY.forEach((el, id) => {

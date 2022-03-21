@@ -28,6 +28,26 @@ export interface IPlotterProps {
 	store: number[][][]
 	setStore: Dispatch<React.SetStateAction<number[][][]>>
 }
+
+export interface IPlotterHeaderProps {
+	donwloadData: (id: number) => void
+	closeTab: (id: number) => void
+	el: string
+	id: number
+	renameTab: string
+	setRenameTab: Dispatch<React.SetStateAction<string>>
+	renameActiveTab: () => void
+}
+
+export interface INoTabBannerProps {
+	openNewTab: () => void
+}
+
+export interface ISelectStepProps {
+	step: number
+	setStep: Dispatch<React.SetStateAction<number>>
+}
+
 export interface IDataChart {
 	[key: string]: number | string
 }

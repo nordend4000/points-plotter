@@ -23,10 +23,10 @@ function renderCoordinates(props: Partial<ICoordinatesProps> = {}) {
 }
 
 describe("<Coordinates/>", () => {
-	test("should display 4 remove Button, 8 inputs", () => {
+	test("should display 5 remove Button, 8 inputs", () => {
 		renderCoordinates()
 		const removeButton = screen.getAllByRole("button")
-		expect(removeButton).toHaveLength(4)
+		expect(removeButton).toHaveLength(5)
 		const inputsNumber = screen.getAllByRole("spinbutton")
 		expect(inputsNumber).toHaveLength(8)
 	})
@@ -43,10 +43,8 @@ describe("<Coordinates/>", () => {
 		const remove = jest.fn()
 		renderCoordinates({ remove })
 		const removeButton = screen.getAllByRole("button")
-		fireEvent.click(removeButton[0])
-		expect(remove).toHaveBeenCalledWith(0)
 		fireEvent.click(removeButton[3])
-		expect(remove).toHaveBeenCalledWith(3)
+		expect(remove).toHaveBeenCalledWith(2)
 	})
 	test("should call update() with the proper value, index, x=0 or y=1", async () => {
 		const update = jest.fn()

@@ -1,19 +1,17 @@
-import React, { FC, useState } from "react"
+import React, { FC, useState, useEffect } from "react"
 import { ITabPanelProps, ILayoutProps } from "../interfaces"
 import Plotter from "./Plotter"
+import PlotterHeader from "./PlotterHeader"
+import NoTabBanner from "./NoTabBanner"
 import axios from "axios"
 import { updateStore } from "../utils/utils"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import AppBar from "@material-ui/core/AppBar"
 import Tabs from "@material-ui/core/Tabs"
 import Tab from "@material-ui/core/Tab"
-import Button from "@material-ui/core/Button"
-import Typography from "@material-ui/core/Typography"
 import Box from "@material-ui/core/Box"
 import Paper from "@material-ui/core/Paper"
 import AddIcon from "@material-ui/icons/Add"
-import CancelPresentationIcon from "@material-ui/icons/CancelPresentation"
-import CloudDownloadIcon from "@material-ui/icons/CloudDownload"
 import Feedback from "./Feedback"
 
 function TabPanel(props: ITabPanelProps) {
@@ -55,8 +53,13 @@ const Layout: FC<ILayoutProps> = ({
 }) => {
 	const [message, setMessage] = useState<string | null>(null)
 	const [open, setOpen] = useState<boolean>(false)
+	const [renameTab, setRenameTab] = useState<string>(tab[activeTab])
 	const classes = useStyles()
 
+	useEffect(() => {
+		setRenameTab(tab[activeTab])
+	}, [tab, activeTab])
+	// FUNCTION TO HANDLE TABS
 	const handleChangeTab = (event: React.ChangeEvent<{}>, newValue: number) => {
 		// IF CLICK ON NEW TAB : ADD NEW TAB + UPDATE STORE + setActive TAB to lenght - 1
 		if (newValue === tab.length - 1) {
@@ -93,7 +96,13 @@ const Layout: FC<ILayoutProps> = ({
 		const updatedStore = store.filter((el, idx) => idx !== id)
 		setStore(updatedStore)
 	}
-	// FETCH DATA FROM SERVER & APPEND TO THE LIST OF POINT FOR THE ACTIVE TAB
+	// RENAME TAB
+	const renameActiveTab = () => {
+		const newTabArray = [...tab]
+		newTabArray.splice(activeTab, 1, renameTab)
+		setTab(newTabArray)
+	}
+	// FETCH DATA FROM SERVER & APPEND DATA TO THE LIST OF POINT ON THE ACTIVE TAB
 	const donwloadData = (id: number) => {
 		axios
 			.get(`${process.env.REACT_APP_DOWNLOAD_API}`)
@@ -136,29 +145,15 @@ const Layout: FC<ILayoutProps> = ({
 						{tab.length > 1 ? (
 							tab.map((el, id) => (
 								<TabPanel activeTab={activeTab} index={id} key={id}>
-									<Box
-										mt={2}
-										mb={3}
-										mr={3}
-										display='flex'
-										justifyContent='space-between'>
-										<Button
-											color='primary'
-											onClick={() => donwloadData(id)}
-											size='medium'
-											variant='outlined'
-											startIcon={<CloudDownloadIcon />}>
-											Donwload
-										</Button>
-										<Button
-											color='primary'
-											onClick={() => closeTab(id)}
-											size='medium'
-											variant='outlined'
-											endIcon={<CancelPresentationIcon />}>
-											Close {el}
-										</Button>
-									</Box>
+									<PlotterHeader
+										id={id}
+										el={el}
+										donwloadData={donwloadData}
+										closeTab={closeTab}
+										renameTab={renameTab}
+										setRenameTab={setRenameTab}
+										renameActiveTab={renameActiveTab}
+									/>
 									<Plotter
 										tab={el}
 										activeTab={activeTab}
@@ -168,22 +163,7 @@ const Layout: FC<ILayoutProps> = ({
 								</TabPanel>
 							))
 						) : (
-							<Typography component='div'>
-								<Box textAlign='center' fontSize='h6.fontSize' my={4}>
-									To start adding point, please open a new Tab
-									<Box display='inline' ml={2}>
-										<Button
-											color='primary'
-											size='large'
-											variant='outlined'
-											onClick={openNewTab}
-											startIcon={<AddIcon />}>
-											{" "}
-											New Tab
-										</Button>
-									</Box>
-								</Box>
-							</Typography>
+							<NoTabBanner openNewTab={openNewTab} />
 						)}
 					</Box>
 				</Paper>
